@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x8S-MX-qwi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qUO-HT-zzX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="pLs-Zc-KpQ">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kXf-Sr-9OY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="qUO-HT-zzX" customClass="ViewController" customModule="CinemaApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KMZ-lR-yXe"/>
+                        <viewControllerLayoutGuide type="bottom" id="I7y-eZ-rI7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gOM-Pk-xD0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="63I-1U-0gX">
+                                <rect key="frame" x="16" y="40" width="343" height="58.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymY-0E-IjX">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bt7-Fx-Xo3">
+                                        <rect key="frame" x="0.0" y="28.5" width="343" height="30"/>
+                                        <gestureRecognizers/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ymY-0E-IjX" firstAttribute="centerX" secondItem="63I-1U-0gX" secondAttribute="centerX" id="HkF-0s-KF0"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bt7-Fx-Xo3" secondAttribute="trailing" id="m1y-65-jtg"/>
+                                </constraints>
+                            </stackView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultphoto" translatesAutoresizingMaskIntoConstraints="NO" id="iCq-RN-Zfm">
+                                <rect key="frame" x="16" y="112" width="343" height="343"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iCq-RN-Zfm" secondAttribute="height" multiplier="1:1" id="iEZ-dW-Wq4"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="khF-Xr-BGt" appends="YES" id="dTi-ZD-jTZ"/>
+                                </connections>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m69-KO-wK9" customClass="RatingControl" customModule="CinemaApp" customModuleProvider="target">
+                                <rect key="frame" x="71.5" y="463" width="232" height="40"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="startSize">
+                                        <size key="value" width="40" height="40"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="63I-1U-0gX" firstAttribute="top" secondItem="KMZ-lR-yXe" secondAttribute="bottom" constant="20" id="JXF-5T-x51"/>
+                            <constraint firstItem="iCq-RN-Zfm" firstAttribute="top" secondItem="63I-1U-0gX" secondAttribute="bottom" constant="13" id="Pkj-fV-uIZ"/>
+                            <constraint firstItem="m69-KO-wK9" firstAttribute="top" secondItem="iCq-RN-Zfm" secondAttribute="bottom" constant="8" id="RZh-ga-ymf"/>
+                            <constraint firstItem="m69-KO-wK9" firstAttribute="centerX" secondItem="gOM-Pk-xD0" secondAttribute="centerX" id="SfX-xk-HMo"/>
+                            <constraint firstItem="iCq-RN-Zfm" firstAttribute="leading" secondItem="63I-1U-0gX" secondAttribute="leading" id="VI1-ki-8AD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="63I-1U-0gX" secondAttribute="trailing" id="WAE-8l-uG4"/>
+                            <constraint firstItem="63I-1U-0gX" firstAttribute="leading" secondItem="gOM-Pk-xD0" secondAttribute="leadingMargin" id="bYq-Z4-6YZ"/>
+                            <constraint firstItem="iCq-RN-Zfm" firstAttribute="leading" secondItem="gOM-Pk-xD0" secondAttribute="leadingMargin" id="heF-vK-JF0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iCq-RN-Zfm" secondAttribute="trailing" id="jim-zL-tu9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mealNameLabel" destination="ymY-0E-IjX" id="4uf-GQ-7xX"/>
+                        <outlet property="nameTextField" destination="Bt7-Fx-Xo3" id="O2k-Dr-y6n"/>
+                        <outlet property="photoImageView" destination="iCq-RN-Zfm" id="zTD-AG-uT5"/>
+                        <outlet property="ratingControl" destination="m69-KO-wK9" id="ipu-v8-Lg2"/>
+                    </connections>
+                </viewController>
+                <tapGestureRecognizer id="khF-Xr-BGt">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="qUO-HT-zzX" id="Dpm-yq-UdC"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-599.20000000000005" y="682.3088455772114"/>
+        </scene>
         <!--Item 2-->
         <scene sceneID="Zyf-2i-YEs">
             <objects>
@@ -108,4 +195,7 @@
             <point key="canvasLocation" x="-510" y="-54"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultphoto" width="200" height="200"/>
+    </resources>
 </document>
