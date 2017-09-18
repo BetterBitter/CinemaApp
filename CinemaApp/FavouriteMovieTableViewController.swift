@@ -1,59 +1,48 @@
 //
-//  MovieTableViewController.swift
+//  FavouriteMovieTableViewController.swift
 //  CinemaApp
 //
-//  Created by Riko Pratama Laimena on 9/18/17.
+//  Created by Riko Pratama Laimena on 9/19/17.
 //  Copyright © 2017 Riko Pratama Laimena. All rights reserved.
 //
 
 import UIKit
 
-class MovieTableViewController: UITableViewController {
+class FavouriteMovieTableViewController: UITableViewController {
 
+    var data = ["1","2","3"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?   {
-        return "Section \(section + 1)"
-    }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return data.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
 
-        let movieImage = cell.viewWithTag(1000) as! UIImageView
-        let movieNameLabel = cell.viewWithTag(1001) as! UILabel
-        let movieDescriptionLabel = cell.viewWithTag(1002) as! UILabel
-        
-        movieImage.image = #imageLiteral(resourceName: "defaultphoto")
-        movieNameLabel.text = "Movie1"
-        movieDescriptionLabel.text = "Description abcdefghijk lmnopqrst uvwxyz"
+        cell.textLabel?.text = data[indexPath.row]
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+
 
     /*
     // Override to support conditional editing of the table view.
